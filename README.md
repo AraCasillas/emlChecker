@@ -1,6 +1,6 @@
 # ✦•┈๑⋅⋯ 𝐄𝐌𝐋𝐂𝐇𝐄𝐂𝐊 ⋯⋅๑┈•✦
 
-<img src="https://i.pinimg.com/1200x/4d/6b/d3/4d6bd38e850925dbc2ff1ca106377edd.jpg?width=770&height=578&fit=crop&format=pjpg&auto=webp" alt="img" align="right" width="400px"> <br><br>
+<img src="https://github.com/AraCasillas/emlChecker/blob/main/chameleon.jpg?width=770&height=578&fit=crop&format=pjpg&auto=webp" alt="img" align="right" width="400px"> <br><br>
 
 This project is a simple command-line tool built in Go for analyzing `.eml` files and extracting relevant email headers for quick inspection. It is designed for fast triage, allowing users to identify spoofing indicators, authentication results, and suspicious patterns directly from raw email data.
 
@@ -77,7 +77,7 @@ mv emlcheck ~/.local/bin/
 Analyze an `.eml` file:
 
 ```bash
-emlcheck file.eml
+emlcheck -r file.eml
 ```
 
 ---
