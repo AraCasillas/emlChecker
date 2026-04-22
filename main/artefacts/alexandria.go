@@ -8,19 +8,20 @@ import (
 )
 
 type EmailHeaders struct {
-	From           string
-	ReplyTo        string
-	ReturnPath     string
-	MessageID      string
-	DKIMSignature  []string
-	AuthUser       string
-	ForwardingLoop string
-	HELO           string
-	EnvelopeFrom   string
-	Received       []string
-	AuthResults    []string
-	SPF            string
-	DMARC          string
+	From                 string
+	ReplyTo              string
+	ReturnPath           string
+	MessageID            string
+	DKIMSignature        []string
+	AuthUser             string
+	ForwardingLoop       string
+	HELO                 string
+	EnvelopeFrom         string
+	Received             []string
+	AuthResults          []string
+	SPF                  string
+	DMARC                string
+	XAuthenticatedSender string
 }
 
 func ReadFile(path string) (*EmailHeaders, error) {
@@ -46,6 +47,8 @@ func ReadFile(path string) (*EmailHeaders, error) {
 	h.MessageID = msg.Header.Get("Message-ID")
 	h.ForwardingLoop = msg.Header.Get("X-MS-Exchange-ForwardingLoop")
 	h.AuthUser = msg.Header.Get("X-AuthUser")
+	h.XAuthenticatedSender = msg.Header.Get("X-Authenticated-Sender")
+	//X-Authenticated-Sender
 
 	// Multi-value headers
 	h.Received = msg.Header["Received"]
@@ -106,6 +109,7 @@ func PrintHeaders(h *EmailHeaders) {
 	fmt.Println("|ENVELOPE-FROM:", h.EnvelopeFrom)
 	fmt.Println("|SPF:", h.SPF)
 	fmt.Println("|DMARC:", h.DMARC)
+	fmt.Println("|X-AUTHENTICATED-SENDER:", h.XAuthenticatedSender)
 
 	fmt.Println("\n|DKIM:")
 	for i, d := range h.DKIMSignature {
