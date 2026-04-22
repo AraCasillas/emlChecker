@@ -77,7 +77,7 @@ mv emlcheck ~/.local/bin/
 Analyze an `.eml` file:
 
 ```bash
-emlcheck file.eml
+emlcheck -r file.eml
 ```
 
 ---
